@@ -1,0 +1,282 @@
+{
+  "info": {
+    "name": "Atelier REST 1 - Gestion UE",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Unité d'enseignement",
+      "item": [
+        {
+          "name": "1. Ajouter une UE",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/UE",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "UE"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": 6,\n  \"domaine\": \"Réseaux\",\n  \"responsable\": \"M. Ali Ben Salah\",\n  \"credits\": 4,\n  \"semestre\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "2. Lister toutes les UE",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/UE",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "UE"
+              ]
+            }
+          }
+        },
+        {
+          "name": "3. UE d'un semestre",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/UE/semestre/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "UE",
+                "semestre",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "4. Supprimer une UE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/UE/5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "UE",
+                "5"
+              ]
+            }
+          }
+        },
+        {
+          "name": "5. Modifier une UE",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/UE/6",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "UE",
+                "6"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"domaine\": \"Réseaux & Télécom\",\n  \"responsable\": \"M. Ali Ben Salah\",\n  \"credits\": 5,\n  \"semestre\": 2\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "6. UE par code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/UE/3",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "UE",
+                "3"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Module",
+      "item": [
+        {
+          "name": "1. Ajouter un module",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/modules",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "modules"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"matricule\": \"M301\",\n  \"nom\": \"Réseaux\",\n  \"coefficient\": 2,\n  \"volumeHoraire\": 21,\n  \"type\": \"RECHERCHE\",\n  \"uniteEnseignement\": {\n    \"code\": 1\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "2. Lister tous les modules",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/modules",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "modules"
+              ]
+            }
+          }
+        },
+        {
+          "name": "3. Module par matricule",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/modules/M101",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "modules",
+                "M101"
+              ]
+            }
+          }
+        },
+        {
+          "name": "4. Supprimer un module",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/modules/M201",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "modules",
+                "M201"
+              ]
+            }
+          }
+        },
+        {
+          "name": "5. Modifier un module",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/modules/M102",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "modules",
+                "M102"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nom\": \"Bases de données avancées\",\n  \"coefficient\": 3,\n  \"volumeHoraire\": 42,\n  \"type\": \"PROFESSIONNEL\",\n  \"uniteEnseignement\": {\n    \"code\": 1\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "6. Modules d'une UE (codeUE)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/modules/ue/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "modules",
+                "ue",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080/Gestion_UE/rest"
+    }
+  ]
+}
