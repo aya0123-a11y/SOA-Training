@@ -24,6 +24,10 @@ public class Module {
         this.type = type;
         this.uniteEnseignement=uniteEnseignement;
     }
+
+    public Module (String matricule, String libelle, int coef, int volumeHoraire) {
+    }
+
     // Enumération TypeModule
     public enum TypeModule {
         TRANSVERSAL,

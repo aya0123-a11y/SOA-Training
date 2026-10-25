@@ -5,21 +5,38 @@ type UniteEnseignement {
     credits: Int
     semestre: Int
 }
-type QueryResolver {
-    allUEs: [UniteEnseignement]
+
+type Module {
+    matricule: String
+    nom: String
+    coefficient: Int
+    volumeHoraire: Int
 }
 
+type QueryResolver {
+    # Unités d'enseignement
+    allUEs: [UniteEnseignement]
+    getUEByCode(code: Int!): UniteEnseignement
+    getUEsByDomaine(domaine: String!): [UniteEnseignement]
+    getUEsBySemestre(semestre: Int!): [UniteEnseignement]
+
+    # Modules
+    getAllModules: [Module]
+    getModuleByMatricule(matricule: String!): Module
+}
 
 type MutationResolver {
-    addUniteEnseignement(
-        code: Int!
-        domaine: String!
-        responsable: String!
-        credits: Int!
-        semestre: Int!
-    ): Boolean
+    # Unités d'enseignement
+    addUniteEnseignement(code: Int!, domaine: String!, responsable: String!, credits: Int!, semestre: Int!): Boolean
+    updateUniteEnseignement(code: Int!, domaine: String, responsable: String, credits: Int, semestre: Int): Boolean
+    deleteUniteEnseignement(code: Int!): Boolean
 
+    # Modules
+    addModule(matricule: String!, libelle: String!, coef: Int!, volumeHoraire: Int!, codeUE: Int!): Boolean
+    updateModule(matricule: String!, libelle: String, coef: Int, volumeHoraire: Int, codeUE: Int): Module
+    deleteModule(matricule: String!): String
 }
+
 schema {
     query: QueryResolver
     mutation: MutationResolver
